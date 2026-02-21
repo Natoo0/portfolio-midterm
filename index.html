@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathaniel Avila | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="light">
+    <div class="container">
+        <div id="home-view">
+      <nav class="top-nav">
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider">
+                <span class="icon">☀️</span>
+                <span class="icon">🌙</span>
+            </div>
+        </label>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="profile-block">
+        <div class="profile-avatar">
+            <img src="pic/face.jpg" alt="Nathaniel Avila" class="avatar-img main-pfp">
+            <img src="pic/face2.jpg" alt="Nathaniel Avila Alt" class="avatar-img hover-pfp">
+        </div>
+        
+        <div class="profile-info">
+            <div class="name-row">
+                <h1>Nathaniel Avila <span class="verified-icon">✓</span></h1>
+                <div class="status-pill">🏆 CSU Capstone 2026 Candidate</div>
+            </div>
+            
+            <p class="location">@ City of Bayugan, Caraga, Philippines</p>
+            <p class="tags">AI \ Software Engineer \ CSU Student</p>
+            
+            <div class="action-buttons">
+                <a href="#" class="btn btn-primary">Schedule a Call ></a>
+                <a href="#" class="btn btn-secondary">Send Email</a>
+                <a href="#" class="btn btn-secondary">Read my blog</a>
+            </div>
+        </div>
+    </div>
+</header>
+            <main class="main-layout">
+                <section class="about-col">
+                    <h2>About</h2>
+                    <div class="about-content">
+                        <p>I am a frontend developer based in the City of Bayugan, specializing in crafting immersive, responsive, and high-performance web interfaces...</p>
+                        <p>As a student at Caraga State University, I am currently spearheading the frontend architecture for my Capstone Project...</p>
+                        <p>I thrive at the intersection of logic and creativity...</p>
+                    </div>
+                    
+                    <div class="tech-section">
+                        <div class="section-header">
+                            <h2>Tech Stack</h2>
+                            <a href="#" id="view-all-stack" class="view-all">View All ></a>
+                        </div>
+                        <div class="stack-grid">
+                            <div class="stack-card">
+                                <span class="stack-label">Frontend</span>
+                                <p>JavaScript, TypeScript, React, Next.js, Tailwind CSS</p>
+                            </div>
+                            <div class="stack-card">
+                                <span class="stack-label">Backend</span>
+                                <p>Node.js, Python, PHP, Laravel, PostgreSQL, MongoDB</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="sidebar-col">
+                    <div class="access-card">
+                        <div class="card-header">>_</div>
+                        <div class="card-body">
+                            <p class="label">CSU CAPSTONE</p>
+                            <h3>ACCESS CARD</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="footer-left">
+                                <p class="label">FOUNDING MEMBER</p>
+                                <p class="name">NATHANIEL</p>
+                            </div>
+                            <div class="qr-code"></div>
+                        </div>
+                    </div>
+
+                    <div class="experience-section">
+                        <h2>Experience</h2>
+                        <ul class="timeline">
+                            <li><span class="year">2026</span><div><strong>CSU Student</strong><p>Capstone Phase</p></div></li>
+                            <li><span class="year">2025</span><div><strong>Freelance Dev</strong><p>Full-stack Projects</p></div></li>
+                        </ul>
+                    </div>
+                </aside>
+            </main>
+
+            <section class="lower-grid">
+                <div class="projects-section">
+                    <div class="section-header">
+                        <h2>Recent Projects</h2>
+                        <a href="#" class="view-all">View All ></a>
+                    </div>
+                    <div class="project-list">
+                        <div class="project-item">
+                            <h3>CSU Smart Campus</h3>
+                            <p>AI-driven navigation system</p>
+                            <span class="project-tag">csu-capstone.dev</span>
+                        </div>
+                        <div class="project-item">
+                            <h3>Bayugan Connect</h3>
+                            <p>Community service interface</p>
+                            <span class="project-tag">bayugan-connect.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certs-section">
+                    <div class="section-header">
+                        <h2>Recent Certifications</h2>
+                        <a href="#" class="view-all">View All ></a>
+                    </div>
+                    <div class="cert-item">
+                        <strong>Frontend Professional</strong>
+                        <p>Meta / Coursera</p>
+                    </div>
+                    <div class="cert-item">
+                        <strong>Generative AI Leader</strong>
+                        <p>Google Cloud</p>
+                    </div>
+                </div>
+
+                <div class="recommend-section">
+                    <h2>Recommendations</h2>
+                    <div class="testimonial-card">
+                        <p class="quote">
+                            "Nathaniel is an exceptional frontend developer who demonstrated great technical leadership during his CSU Capstone."
+                        </p>
+                        <div class="author">
+                            <strong>CSU Faculty Member</strong>
+                            <span>Professor at Caraga State University</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+  <footer class="gallery-section">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+        <div class="gallery-item" style="background-image: url('pic/pic1.jpg');" onclick="openLightbox('pic/pic1.jpg')"></div>
+        <div class="gallery-item" style="background-image: url('pic/pic2.jpg');" onclick="openLightbox('pic/pic2.jpg')"></div>
+        <div class="gallery-item" style="background-image: url('pic/pic3.jpg');" onclick="openLightbox('pic/pic3.jpg')"></div>
+        <div class="gallery-item" style="background-image: url('pic/pic4.jpg');" onclick="openLightbox('pic/pic4.jpg')"></div>
+    </div>
+    <p class="copyright">© 2026 Nathaniel Avila. All rights reserved.</p>
+</footer>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-btn">&times;</span>
+    <img id="lightbox-img" src="" alt="Full view">
+</div>
+        </div>
+
+        <div id="tech-stack-view" style="display: none;">
+            <div class="stack-header">
+                <a href="#" id="back-home" class="back-link">← Back to Home</a>
+                <h1>Tech Stack</h1>
+            </div>
+
+            <section class="stack-category">
+                <h3>Frontend</h3>
+                <div class="tags-container">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Next.js</span>
+                    <span class="tag">Tailwind CSS</span>
+                    <span class="tag">Vite</span>
+                </div>
+            </section>
+
+            <section class="stack-category">
+                <h3>Developer Tools</h3>
+                <div class="tags-container">
+                    <span class="tag">Git</span>
+                    <span class="tag">GitHub</span>
+                    <span class="tag">VS Code</span>
+                    <span class="tag">Figma</span>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
