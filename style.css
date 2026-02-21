@@ -30,7 +30,6 @@ body {
 
 /* --- PROFILE LAYOUT UPDATES --- */
 
-/* Align photo and info side-by-side */
 .profile-block {
     display: flex;
     gap: 40px;
@@ -38,13 +37,11 @@ body {
     margin-bottom: 60px;
 }
 
-/* Ensure the info block grows correctly */
 .profile-info {
     display: flex;
     flex-direction: column;
 }
 
-/* Put name and status pill in one row */
 .name-row {
     display: flex;
     align-items: center;
@@ -52,7 +49,6 @@ body {
     margin-bottom: 8px;
 }
 
-/* Align pill vertically with the name */
 .status-pill {
     margin: 0; 
     white-space: nowrap;
@@ -64,14 +60,12 @@ body {
     font-size: 0.75rem;
 }
 
-/* Arrange buttons in a row under the tags */
 .action-buttons {
     display: flex;
     gap: 12px;
     margin-top: 24px;
 }
 
-/* Keep top-nav for only the theme toggle */
 .top-nav {
     display: flex;
     justify-content: flex-end;
@@ -204,11 +198,6 @@ body.dark .project-tag { background: #27272a; }
 .author strong { display: block; font-size: 0.9rem; }
 .author span { font-size: 0.8rem; color: var(--muted); }
 
-@media (max-width: 900px) {
-    .lower-grid { grid-template-columns: 1fr; gap: 30px; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
 #tech-stack-view h1 { font-size: 2rem; margin-top: 10px; margin-bottom: 40px; font-weight: 800; letter-spacing: -1px; }
 .back-link { color: var(--muted); text-decoration: none; font-size: 0.9rem; display: block; margin-top: 20px; transition: color 0.2s; }
 .back-link:hover { color: var(--text); }
@@ -276,3 +265,67 @@ h2 { font-size: 1.25rem; margin-bottom: 25px; font-weight: 700; }
 .qr-code { width: 60px; height: 60px; background: #3f3f46; border-radius: 6px; }
 .stack-card { border: 1px solid var(--border); padding: 20px; border-radius: 12px; margin-top: 15px; }
 .stack-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; }
+
+/* --- MOBILE RESPONSIVENESS UPDATES --- */
+
+@media (max-width: 850px) {
+    .container { padding: 40px 20px; }
+
+    /* Stack profile photo and text */
+    .profile-block {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+    }
+
+    /* Wrap name and pill for small screens */
+    .name-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .name-badge h1 {
+        font-size: 2rem;
+    }
+
+    /* Stack buttons vertically for easier tapping */
+    .action-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Stack the About section and Access Card */
+    .main-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .access-card {
+        height: auto;
+        padding: 30px;
+    }
+
+    /* Adjust Gallery and Lower Grid for mobile */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lower-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
