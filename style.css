@@ -266,7 +266,7 @@ h2 { font-size: 1.25rem; margin-bottom: 25px; font-weight: 700; }
 .stack-card { border: 1px solid var(--border); padding: 20px; border-radius: 12px; margin-top: 15px; }
 .stack-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; }
 
-/* --- MOBILE RESPONSIVE ADAPTATION --- */
+/* --- MOBILE RESPONSIVE --- */
 @media screen and (max-width: 850px) {
     /* 1. Reset Container for Mobile */
     .container {
