@@ -266,66 +266,33 @@ h2 { font-size: 1.25rem; margin-bottom: 25px; font-weight: 700; }
 .stack-card { border: 1px solid var(--border); padding: 20px; border-radius: 12px; margin-top: 15px; }
 .stack-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; }
 
-/* --- MOBILE RESPONSIVENESS UPDATES --- */
+/* --- FINAL MOBILE POLISH --- */
 
-@media (max-width: 850px) {
-    .container { padding: 40px 20px; }
-
-    /* Stack profile photo and text */
-    .profile-block {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 25px;
-    }
-
-    /* Wrap name and pill for small screens */
-    .name-row {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .name-badge h1 {
-        font-size: 2rem;
-    }
-
-    /* Stack buttons vertically for easier tapping */
-    .action-buttons {
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-    }
-
-    .btn {
-        width: 100%;
-        text-align: center;
-    }
-
-    /* Stack the About section and Access Card */
+@media (max-width: 768px) {
+    /* Prevent the Access Card from overlapping */
     .main-layout {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        display: flex;
+        flex-direction: column-reverse; /* Put the card above or below the text neatly */
+        gap: 30px;
     }
 
+    /* Fix About text width */
+    .about-col {
+        width: 100%;
+    }
+
+    /* Make the Access Card fit the screen width */
     .access-card {
+        width: 100%;
         height: auto;
+        min-height: 350px;
         padding: 30px;
     }
 
-    /* Adjust Gallery and Lower Grid for mobile */
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .lower-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding-top: 40px;
-    }
-}
-
-@media (max-width: 480px) {
-    .gallery-grid {
-        grid-template-columns: 1fr;
+    /* Fix button alignment in the header */
+    .action-buttons {
+        display: grid;
+        grid-template-columns: 1fr; /* Stack buttons for better thumb reach */
+        width: 100%;
     }
 }
