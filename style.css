@@ -266,44 +266,35 @@ h2 { font-size: 1.25rem; margin-bottom: 25px; font-weight: 700; }
 .stack-card { border: 1px solid var(--border); padding: 20px; border-radius: 12px; margin-top: 15px; }
 .stack-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; }
 
-/* --- MOBILE RESPONSIVE FIX --- */
+/* --- MOBILE OVERLAP FIX --- */
 
-@media (max-width: 850px) {
-    /* Stop the columns from overlapping by stacking them */
+@media screen and (max-width: 850px) {
+    /* Force the layout to stack vertically */
     .main-layout {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 40px !important;
     }
 
-    /* Force the About text to use the full width of the phone */
+    /* Make the About text readable and full-width */
     .about-col {
-        width: 100%;
+        width: 100% !important;
+        padding-right: 0 !important;
     }
 
-    /* Adjust the Access Card so it sits neatly below the text */
+    /* Prevent the Access Card from floating or overlapping */
     .access-card {
-        width: 100%;
-        height: auto;
-        min-height: 380px;
-        padding: 30px;
+        width: 100% !important;
+        max-width: 400px !important;
+        height: auto !important;
+        min-height: 380px !important;
+        margin: 0 auto !important; /* Centers it nicely on the phone */
     }
 
-    /* Center your profile block for a cleaner mobile look */
+    /* Adjust profile header for mobile */
     .profile-block {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    /* Ensure buttons stack and are easy to tap */
-    .action-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .btn {
-        width: 100%;
-        text-align: center;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
     }
 }
