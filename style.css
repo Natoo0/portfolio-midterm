@@ -1,4 +1,4 @@
-/* --- 1. CORE VARIABLES & THEME --- */
+/* --- 1. THE FOUNDATION & VARIABLES --- */
 :root {
     --bg: #ffffff;
     --text: #18181b;
@@ -15,11 +15,11 @@ body.dark {
     --border: #27272a;
 }
 
-/* --- 2. GLOBAL RESET --- */
+/* --- 2. GLOBAL RESET (Crucial for iPhone 14) --- */
 * { 
     margin: 0; 
     padding: 0; 
-    box-sizing: border-box; 
+    box-sizing: border-box; /* Stops the overflow you see in your screenshots */
 }
 
 body { 
@@ -28,63 +28,43 @@ body {
     font-family: 'Inter', sans-serif; 
     font-size: 14px; 
     line-height: 1.6;
-    transition: background 0.3s, color 0.3s; 
+    transition: 0.3s; 
     -webkit-font-smoothing: antialiased;
 }
 
-/* --- 3. MOBILE-FIRST LAYOUT (iPhone 14 Default) --- */
+/* --- 3. MOBILE-FIRST BASE LAYOUT --- */
 .container { 
     width: 100%; 
-    max-width: 393px; /* Precise iPhone 14 logical width */
+    max-width: 393px; /* Forces layout to stay within iPhone 14 width */
     margin: 0 auto; 
     padding: 20px; 
 }
 
 .main-layout { 
     display: flex; 
-    flex-direction: column; 
+    flex-direction: column; /* Stacks everything to fix the 'destroyed' look */
     gap: 30px; 
 }
 
-.profile-block { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    gap: 20px; 
-}
-
-.profile-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 16px;
-    object-fit: cover;
-}
-
-/* --- 4. THE ACCESS CARD (FIXED) --- */
-.access-card {
-    background: var(--card-gradient); 
-    color: white; 
-    border-radius: 24px; 
-    padding: 30px; 
-    min-height: 380px;
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    overflow: hidden; /* Prevents text bleeding out */
-    position: relative;
-}
-
-/* --- 5. TIMELINE & COMPONENTS --- */
+/* --- 4. THE PROFESSIONAL TIMELINE (Detailed) --- */
 .timeline-container {
     position: relative;
-    padding-left: 25px;
-    margin-top: 20px;
-    border-left: 2px solid var(--border);
+    padding-left: 30px;
+    margin-top: 25px;
+    text-align: left;
 }
 
-.timeline-item { position: relative; margin-bottom: 25px; }
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 5px;
+    bottom: 10px;
+    width: 2px;
+    background: var(--border);
+}
+
+.timeline-item { position: relative; margin-bottom: 35px; }
 
 .timeline-dot {
     position: absolute;
@@ -95,28 +75,51 @@ body {
     background: var(--bg);
     border: 2px solid var(--border);
     border-radius: 50%;
+    z-index: 1;
 }
 
-.action-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 20px;
+.timeline-dot.active { background: var(--text); border-color: var(--text); }
+
+/* --- 5. THE ACCESS CARD (Professional Version) --- */
+.access-card {
+    background: var(--card-gradient); 
+    color: white; 
+    border-radius: 24px; 
+    padding: 30px; 
+    height: auto; 
+    min-height: 400px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    box-shadow: 0 30px 60px -12px rgba(0,0,0,0.3);
+    overflow: hidden; /* Prevents your name 'NATHANIEL' from bleeding out */
 }
 
-.btn {
-    padding: 12px;
-    border-radius: 8px;
-    text-align: center;
-    text-decoration: none;
+.card-label {
+    font-size: 0.7rem;
     font-weight: 600;
-    border: 1px solid var(--border);
-    color: var(--text);
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
 }
 
-.btn-blue { background: var(--accent); color: white; border: none; }
+/* --- 6. SOCIAL LINKS & SIDEBAR --- */
+.social-list { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
 
-/* --- 6. DESKTOP ADAPTATION (Laptops/PCs) --- */
+.social-link-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text);
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.social-link-item:hover { background: var(--border); }
+
+/* --- 7. DESKTOP OVERRIDES (Only triggers on big screens) --- */
 @media (min-width: 1024px) {
     .container { 
         max-width: 1050px; 
@@ -130,8 +133,9 @@ body {
     }
 
     .profile-block { 
+        display: flex; 
+        gap: 40px; 
         flex-direction: row; 
-        text-align: left; 
         align-items: flex-start; 
     }
 }
