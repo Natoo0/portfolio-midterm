@@ -1,4 +1,4 @@
-/* --- 1. THE FOUNDATION & VARIABLES --- */
+/* --- 1. THE COMPLETE FOUNDATION & VARIABLES --- */
 :root {
     --bg: #ffffff;
     --text: #18181b;
@@ -6,6 +6,9 @@
     --border: #e4e4e7;
     --accent: #3b82f6;
     --card-gradient: linear-gradient(145deg, #27272a, #09090b);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 30px 60px -12px rgba(0,0,0,0.3);
 }
 
 body.dark {
@@ -15,38 +18,75 @@ body.dark {
     --border: #27272a;
 }
 
-/* --- 2. GLOBAL RESET (Crucial for iPhone 14) --- */
+/* --- 2. GLOBAL RESET & BASE --- */
 * { 
     margin: 0; 
     padding: 0; 
-    box-sizing: border-box; /* Stops the overflow you see in your screenshots */
+    box-sizing: border-box; 
+    -webkit-tap-highlight-color: transparent;
 }
 
 body { 
     background: var(--bg); 
     color: var(--text); 
-    font-family: 'Inter', sans-serif; 
+    font-family: 'Inter', -apple-system, system-ui, sans-serif; 
     font-size: 14px; 
     line-height: 1.6;
-    transition: 0.3s; 
+    transition: background 0.3s ease, color 0.3s ease; 
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
-/* --- 3. MOBILE-FIRST BASE LAYOUT --- */
+/* --- 3. THE DESKTOP ARCHITECTURE (300+ Line Structure) --- */
 .container { 
-    width: 100%; 
-    max-width: 393px; /* Forces layout to stay within iPhone 14 width */
+    max-width: 1050px; 
     margin: 0 auto; 
-    padding: 20px; 
+    padding: 60px 20px; 
+}
+
+.top-nav { 
+    display: flex; 
+    justify-content: flex-end; 
+    margin-bottom: 50px; 
 }
 
 .main-layout { 
-    display: flex; 
-    flex-direction: column; /* Stacks everything to fix the 'destroyed' look */
-    gap: 30px; 
+    display: grid; 
+    grid-template-columns: 1.6fr 1fr; 
+    gap: 80px; 
+    margin-bottom: 80px; 
 }
 
-/* --- 4. THE PROFESSIONAL TIMELINE (Detailed) --- */
+/* --- 4. PROFILE BLOCK --- */
+.profile-block { 
+    display: flex; 
+    gap: 40px; 
+    align-items: flex-start; 
+    margin-bottom: 60px; 
+}
+
+.profile-info { display: flex; flex-direction: column; }
+
+.name-row { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    margin-bottom: 8px; 
+}
+
+.status-pill {
+    margin: 0; 
+    white-space: nowrap;
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* --- 5. THE PROFESSIONAL TIMELINE --- */
 .timeline-container {
     position: relative;
     padding-left: 30px;
@@ -78,21 +118,85 @@ body {
     z-index: 1;
 }
 
-.timeline-dot.active { background: var(--text); border-color: var(--text); }
+.timeline-dot.active { 
+    background: var(--text); 
+    border-color: var(--text); 
+}
 
-/* --- 5. THE ACCESS CARD (Professional Version) --- */
+.timeline-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 4px; 
+}
+
+.timeline-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--muted);
+    background: var(--border);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* --- 6. SIDEBAR & SOCIALS --- */
+.sidebar-links-section {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    text-align: left;
+}
+
+.social-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    margin-top: 20px; 
+}
+
+.social-link-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.social-link-item:hover { 
+    background: var(--border); 
+    transform: translateX(5px);
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    background: var(--text);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+}
+
+/* --- 7. THE ACCESS CARD (FIXED FOR IPHONE 14) --- */
 .access-card {
     background: var(--card-gradient); 
     color: white; 
     border-radius: 24px; 
-    padding: 30px; 
-    height: auto; 
-    min-height: 400px;
+    padding: 40px; 
+    height: 420px;
     display: flex; 
     flex-direction: column; 
     justify-content: space-between;
-    box-shadow: 0 30px 60px -12px rgba(0,0,0,0.3);
-    overflow: hidden; /* Prevents your name 'NATHANIEL' from bleeding out */
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
 }
 
 .card-label {
@@ -103,39 +207,21 @@ body {
     letter-spacing: 1.5px;
 }
 
-/* --- 6. SOCIAL LINKS & SIDEBAR --- */
-.social-list { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-
-.social-link-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--text);
-    padding: 8px;
-    border-radius: 8px;
-    transition: background 0.2s;
+.card-name {
+    font-size: clamp(1.5rem, 5vw, 2.2rem); /* Dynamic scaling for IP14 */
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
 }
 
-.social-link-item:hover { background: var(--border); }
-
-/* --- 7. DESKTOP OVERRIDES (Only triggers on big screens) --- */
-@media (min-width: 1024px) {
-    .container { 
-        max-width: 1050px; 
-        padding: 60px 20px; 
-    }
-
+/* --- 8. THE MOBILE OVERRIDES --- */
+@media (max-width: 1024px) {
     .main-layout { 
-        display: grid; 
-        grid-template-columns: 1.6fr 1fr; 
-        gap: 80px; 
-    }
-
-    .profile-block { 
         display: flex; 
-        gap: 40px; 
-        flex-direction: row; 
-        align-items: flex-start; 
+        flex-direction: column; 
+        gap: 50px; 
     }
+    .container { padding: 40px 20px; }
+    .profile-block { flex-direction: column; align-items: center; text-align: center; }
+    .timeline-dot { left: -31px; }
 }
