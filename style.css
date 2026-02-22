@@ -266,35 +266,48 @@ h2 { font-size: 1.25rem; margin-bottom: 25px; font-weight: 700; }
 .stack-card { border: 1px solid var(--border); padding: 20px; border-radius: 12px; margin-top: 15px; }
 .stack-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; }
 
-/* --- MOBILE OVERLAP FIX --- */
+/* --- MOBILE RESET & REPAIR --- */
 
 @media screen and (max-width: 850px) {
-    /* Force the layout to stack vertically */
-    .main-layout {
+    /* Reset the container padding so it doesn't squeeze the content */
+    .container { 
+        padding: 30px 15px !important; 
+    }
+
+    /* Force EVERYTHING into a single vertical column */
+    .profile-block, 
+    .main-layout, 
+    .lower-grid {
         display: flex !important;
-        flex-direction: column !important;
-        gap: 40px !important;
-    }
-
-    /* Make the About text readable and full-width */
-    .about-col {
-        width: 100% !important;
-        padding-right: 0 !important;
-    }
-
-    /* Prevent the Access Card from floating or overlapping */
-    .access-card {
-        width: 100% !important;
-        max-width: 400px !important;
-        height: auto !important;
-        min-height: 380px !important;
-        margin: 0 auto !important; /* Centers it nicely on the phone */
-    }
-
-    /* Adjust profile header for mobile */
-    .profile-block {
         flex-direction: column !important;
         align-items: center !important;
         text-align: center !important;
+        gap: 30px !important;
+    }
+
+    /* Fix the About section width */
+    .about-col {
+        width: 100% !important;
+    }
+
+    /* Prevent the Access Card from overlapping or being too wide */
+    .access-card {
+        width: 100% !important;
+        max-width: 350px !important;
+        height: auto !important;
+        min-height: 350px !important;
+        padding: 25px !important;
+    }
+
+    /* Stack buttons and make them fit the screen */
+    .action-buttons {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+    }
+
+    .btn {
+        width: 100% !important;
+        display: block !important;
     }
 }
