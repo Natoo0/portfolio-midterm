@@ -1,3 +1,4 @@
+/* --- 1. CORE VARIABLES & THEME --- */
 :root {
     --bg: #ffffff;
     --text: #18181b;
@@ -14,7 +15,12 @@ body.dark {
     --border: #27272a;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* --- 2. GLOBAL RESET --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
 
 body { 
     background: var(--bg); 
@@ -22,50 +28,63 @@ body {
     font-family: 'Inter', sans-serif; 
     font-size: 14px; 
     line-height: 1.6;
-    transition: 0.3s; 
+    transition: background 0.3s, color 0.3s; 
     -webkit-font-smoothing: antialiased;
 }
 
-.container { max-width: 1050px; margin: 0 auto; padding: 60px 20px; }
-
-/* --- PROFILE LAYOUT --- */
-.profile-block { display: flex; gap: 40px; align-items: flex-start; margin-bottom: 60px; }
-.profile-info { display: flex; flex-direction: column; }
-.name-row { display: flex; align-items: center; gap: 15px; margin-bottom: 8px; }
-
-.status-pill {
-    margin: 0; 
-    white-space: nowrap;
-    display: inline-block;
-    background: var(--accent);
-    color: white;
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 0.75rem;
+/* --- 3. MOBILE-FIRST LAYOUT (iPhone 14 Default) --- */
+.container { 
+    width: 100%; 
+    max-width: 393px; /* Precise iPhone 14 logical width */
+    margin: 0 auto; 
+    padding: 20px; 
 }
 
-.action-buttons { display: flex; gap: 12px; margin-top: 24px; }
-.top-nav { display: flex; justify-content: flex-end; margin-bottom: 50px; }
+.main-layout { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 30px; 
+}
 
-/* --- PROFESSIONAL VERTICAL TIMELINE --- */
+.profile-block { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    gap: 20px; 
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+/* --- 4. THE ACCESS CARD (FIXED) --- */
+.access-card {
+    background: var(--card-gradient); 
+    color: white; 
+    border-radius: 24px; 
+    padding: 30px; 
+    min-height: 380px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    overflow: hidden; /* Prevents text bleeding out */
+    position: relative;
+}
+
+/* --- 5. TIMELINE & COMPONENTS --- */
 .timeline-container {
     position: relative;
-    padding-left: 30px;
-    margin-top: 25px;
-    text-align: left; /* Keeps text left-aligned even if parent is centered */
+    padding-left: 25px;
+    margin-top: 20px;
+    border-left: 2px solid var(--border);
 }
 
-.timeline-container::before {
-    content: '';
-    position: absolute;
-    left: 4px;
-    top: 5px;
-    bottom: 10px;
-    width: 2px;
-    background: var(--border);
-}
-
-.timeline-item { position: relative; margin-bottom: 35px; }
+.timeline-item { position: relative; margin-bottom: 25px; }
 
 .timeline-dot {
     position: absolute;
@@ -76,136 +95,43 @@ body {
     background: var(--bg);
     border: 2px solid var(--border);
     border-radius: 50%;
-    z-index: 1;
 }
 
-.timeline-dot.active { background: var(--text); border-color: var(--text); }
-
-.timeline-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-
-.timeline-badge {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--muted);
-    background: var(--border);
-    padding: 2px 8px;
-    border-radius: 4px;
-}
-
-/* --- SIDEBAR SOCIAL LINKS --- */
-.sidebar-links-section {
-    margin-top: 40px;
-    padding-top: 40px;
-    border-top: 1px solid var(--border);
-    text-align: left;
-}
-
-.social-list { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-
-.social-link-item {
-    display: flex;
-    align-items: center;
+.action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
-    text-decoration: none;
-    color: var(--text);
-    font-size: 0.9rem;
-    padding: 8px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 12px;
     border-radius: 8px;
-    transition: background 0.2s;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    color: var(--text);
 }
 
-.social-link-item:hover { background: var(--border); }
+.btn-blue { background: var(--accent); color: white; border: none; }
 
-.social-icon {
-    width: 24px;
-    height: 24px;
-    background: var(--text);
-    color: var(--bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    font-weight: 800;
-    text-transform: uppercase;
-}
+/* --- 6. DESKTOP ADAPTATION (Laptops/PCs) --- */
+@media (min-width: 1024px) {
+    .container { 
+        max-width: 1050px; 
+        padding: 60px 20px; 
+    }
 
-/* --- GRID & CARD LAYOUTS --- */
-.main-layout { display: grid; grid-template-columns: 1.6fr 1fr; gap: 80px; margin-bottom: 80px; }
-.access-card {
-    background: var(--card-gradient); color: white; border-radius: 24px; padding: 40px; height: 420px;
-    display: flex; flex-direction: column; justify-content: space-between;
-    box-shadow: 0 30px 60px -12px rgba(0,0,0,0.3);
-}
+    .main-layout { 
+        display: grid; 
+        grid-template-columns: 1.6fr 1fr; 
+        gap: 80px; 
+    }
 
-/* 1. Global Reset & Fluidity */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: #f4f4f4;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-}
-
-/* 2. Responsive Container */
-.main-wrapper {
-  width: 100%;
-  max-width: 393px; /* Exact iPhone 14 width */
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-/* 3. Header Section (Flexbox) */
-.header {
-  display: flex;
-  padding: 20px;
-  gap: 15px;
-  align-items: center;
-}
-
-.profile-img {
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-/* 4. Content & Typography */
-.content { padding: 0 20px 20px; }
-
-h1 { font-size: 1.5rem; margin-bottom: 4px; }
-
-p { 
-  font-size: 0.9rem; 
-  line-height: 1.5; 
-  color: #444; 
-  margin-bottom: 15px; 
-}
-
-/* 5. The Cards (Grid) */
-.card-stack {
-  display: grid;
-  gap: 10px;
-}
-
-.btn-blue {
-  background: #2563eb;
-  color: white;
-  padding: 12px;
-  border-radius: 8px;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* Access Card Refactor */
-.access-card {
-  background: #1a1a1a;
-  color: white;
-  padding: 25px;
-  border-radius: 20px;
-  position: relative;
+    .profile-block { 
+        flex-direction: row; 
+        text-align: left; 
+        align-items: flex-start; 
+    }
 }
