@@ -266,33 +266,44 @@ h2 { font-size: 1.25rem; margin-bottom: 25px; font-weight: 700; }
 .stack-card { border: 1px solid var(--border); padding: 20px; border-radius: 12px; margin-top: 15px; }
 .stack-label { font-size: 0.75rem; font-weight: 700; color: var(--muted); text-transform: uppercase; }
 
-/* --- FINAL MOBILE POLISH --- */
+/* --- MOBILE RESPONSIVE FIX --- */
 
-@media (max-width: 768px) {
-    /* Prevent the Access Card from overlapping */
+@media (max-width: 850px) {
+    /* Stop the columns from overlapping by stacking them */
     .main-layout {
         display: flex;
-        flex-direction: column-reverse; /* Put the card above or below the text neatly */
-        gap: 30px;
+        flex-direction: column;
+        gap: 40px;
     }
 
-    /* Fix About text width */
+    /* Force the About text to use the full width of the phone */
     .about-col {
         width: 100%;
     }
 
-    /* Make the Access Card fit the screen width */
+    /* Adjust the Access Card so it sits neatly below the text */
     .access-card {
         width: 100%;
         height: auto;
-        min-height: 350px;
+        min-height: 380px;
         padding: 30px;
     }
 
-    /* Fix button alignment in the header */
+    /* Center your profile block for a cleaner mobile look */
+    .profile-block {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Ensure buttons stack and are easy to tap */
     .action-buttons {
-        display: grid;
-        grid-template-columns: 1fr; /* Stack buttons for better thumb reach */
+        flex-direction: column;
         width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
     }
 }
