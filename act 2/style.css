@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+nav {
+    background-color: #333;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.about-section {
+    text-align: center;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.skills-list {
+    display: inline-block;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.centered-heading {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.box {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.box:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.box1 { background-color: #e74c3c; }
+.box2 { background-color: #3498db; }
+.box3 { background-color: #2ecc71; }
+.box4 { background-color: #f1c40f; }
+.box5 { background-color: #9b59b6; }
+.box6 { background-color: #e67e22; }
